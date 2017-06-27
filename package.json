@@ -1,0 +1,26 @@
+{
+  "name": "grunt-conf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadashi-chen/grunt-conf.git"
+  },
+  "author": "陈景",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tadashi-chen/grunt-conf/issues"
+  },
+  "homepage": "https://github.com/tadashi-chen/grunt-conf#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sync": "^0.6.2"
+  }
+}
