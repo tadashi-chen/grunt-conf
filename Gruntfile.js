@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
         sass: {
             dist: {
                 options: {
@@ -21,63 +22,23 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false,
                 },
-            },
-            // copy: {
-            //     files: [
-            //         './assets/**'
-            //     ],
-            //     tasks: ['copy'],
-            //     options: {
-            //         spawn: false,
-            //     },
-            // },
-            sync: {
-                files: [
-                    './assets/**'
-                ],
-                tasks: ['sync'],
-                options: {
-                    spawn: false,
-                },
             }
         },
-        copy: {
-            main: {
-                files: [
-                    // includes files within path
-                    // { expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile' },
-
-                    // includes files within path and its sub-directories
-                    { expand: true, cwd: './assets/', src: ['**'], dest: './dest/', filter: 'isFile' },
-
-                    // makes all src relative to cwd
-                    // { expand: true, cwd: 'path/', src: ['**'], dest: 'dest/' },
-
-                    // flattens results to a single level
-                    // { expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile' },
-                ],
+        uglify: {
+            options: {
+                banner: '/*! File version: <%= grunt.template.date("yyyy-mm-dd hh:MM:ss") %> */\n'//添加banner
             },
-        },
-        sync: {
-            main: {
-                files: [{
-                    cwd: './assets/',
-                    src: [
-                        '**', /* Include everything */
-                        // '!**/*.txt' /* but exclude txt files */
-                    ],
-                    dest: './dest/',
-                }],
-                pretend: false, // Don't do any IO. Before you run the task with `updateAndDelete` PLEASE MAKE SURE it doesn't remove too much. 
-                verbose: true // Display log messages when copying files 
+            release: {
+                files: {
+                    './assets/js/main.min.js': ['./assets/js/a.js', './assets/js/b.js']
+                }
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-sync');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask("default", ["watch:copy"]);
+    grunt.registerTask("default", ["watch"]);
 }
