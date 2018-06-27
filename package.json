@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tadashi-chen/grunt-conf.git"
+    "url": "git+https://github.com/wscj/grunt-conf.git"
   },
   "author": "陈景",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tadashi-chen/grunt-conf/issues"
+    "url": "https://github.com/wscj/grunt-conf/issues"
   },
-  "homepage": "https://github.com/tadashi-chen/grunt-conf#readme",
+  "homepage": "https://github.com/wscj/grunt-conf#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
